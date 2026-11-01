@@ -1,0 +1,91 @@
+/* ==========================================================================
+   DESIGN SYSTEM - COLOR TOKENS
+   File: design-system/color.css
+   Quản lý toàn bộ bảng màu chuẩn của dự án VNCG
+   ========================================================================== */
+
+:root {
+    /* ----------------------------------------------------------------------
+       1. BRAND & PRIMARY COLORS (Xanh dương & Navy)
+       ---------------------------------------------------------------------- */
+    --color-primary: #1565c0;              /* Xanh dương chính */
+    --color-primary-hover: #0d47a1;        /* Xanh dương hover */
+    --color-primary-sub: #1e60b5;          /* Xanh dương tiêu đề / bảng */
+    --color-primary-sub-hover: #18529d;    /* Xanh dương bảng hover */
+    --color-primary-dark: #0947a5;         /* Xanh navy đậm cho card/bar */
+    --color-primary-deep: #0b1f3a;         /* Xanh navy tối cho text tiêu đề */
+    --color-primary-navy: #01193a;         /* Xanh navy siêu đậm cho banner */
+    --color-primary-light: #e8f1fc;        /* Nền xanh nhạt subgroup */
+    --color-primary-light-hover: #ddeaf9;  /* Nền subgroup hover */
+    --color-primary-soft: #e0edff;         /* Nền badge / icon xanh dương */
+    --color-accent: #0099ff;               /* Xanh cyan điểm nhấn */
+
+    /* ----------------------------------------------------------------------
+       2. STATUS & THEME COLORS (Trạng thái & Tiến độ)
+       ---------------------------------------------------------------------- */
+    /* Success / Green */
+    --color-success: #16a34a;              /* Xanh lá chuẩn (YES / Compliant) */
+    --color-success-dark: #059669;         /* Xanh lá đậm */
+    --color-success-accent: #00b074;       /* Xanh mint/ngọc thanh tiến độ */
+    --color-success-emerald: #10b981;      /* Xanh emerald */
+    --color-success-light: #dcfce7;        /* Nền badge xanh lá */
+    --color-success-subtle: #d1fae5;       /* Nền icon xanh lá nhạt */
+    --color-success-soft: #f3fbf7;         /* Nền card mềm xanh lá */
+    --color-success-progress: #00c08b;     /* Thanh progress xanh lá */
+
+    /* Warning / Orange / Amber */
+    --color-warning: #ea580c;              /* Cam đậm */
+    --color-warning-bright: #f97316;       /* Cam tươi (Level 2 / Chưa đáp ứng) */
+    --color-warning-amber: #f59e0b;        /* Vàng hổ phách / Amber */
+    --color-warning-light: #ffedd5;        /* Nền badge / icon cam */
+    --color-warning-amber-light: #fef3c7;  /* Nền badge vàng hổ phách nhạt */
+    --color-warning-border: #fed7aa;       /* Viền card cam */
+    --color-warning-soft: #fff9f5;         /* Nền card mềm cam */
+
+    /* Danger / Red */
+    --color-danger: #dc2626;               /* Đỏ chuẩn (NO / Non-compliant) */
+    --color-danger-bright: #ef4444;        /* Đỏ tươi icon / thanh tiến độ */
+    --color-danger-light: #fee2e2;         /* Nền icon / badge đỏ nhạt */
+    --color-danger-soft: #fef2f2;          /* Nền card mềm đỏ */
+
+    /* Info / Purple */
+    --color-purple: #7c3aed;               /* Tím chính (Level 1) */
+    --color-purple-dark: #9333ea;          /* Tím đậm */
+    --color-purple-bar: #8b5cf6;           /* Tím thanh tiến độ */
+    --color-purple-light: #f3e8ff;         /* Nền badge tím */
+    --color-purple-soft: #ede9fe;          /* Nền icon tím nhạt */
+
+    /* ----------------------------------------------------------------------
+       3. NEUTRAL & TEXT COLORS (Chữ & Màu trung tính)
+       ---------------------------------------------------------------------- */
+    --color-white: #ffffff;
+    --color-text-title: #0b1f3a;           /* Tiêu đề cấp cao */
+    --color-text-heading: #0f172a;         /* Tiêu đề section */
+    --color-text-main: #1e293b;            /* Văn bản chính, body */
+    --color-text-body: #334155;            /* Văn bản chi tiết bảng */
+    --color-text-secondary: #475569;       /* Văn bản phụ, nút filter */
+    --color-text-muted: #64748b;           /* Văn bản mờ, chú thích, icon */
+    --color-text-dim: #8c9ba5;             /* Nhãn phụ uppercase */
+    --color-text-placeholder: #94a3b8;     /* Chữ placeholder, mô tả nhỏ */
+    --color-text-white-trans-90: rgba(255, 255, 255, 0.92);
+    --color-text-white-trans-80: rgba(255, 255, 255, 0.85);
+
+    /* ----------------------------------------------------------------------
+       4. BACKGROUND COLORS (Màu nền)
+       ---------------------------------------------------------------------- */
+    --color-bg-page: #f8fafc;              /* Nền toàn trang */
+    --color-bg-card: #ffffff;              /* Nền card/panel */
+    --color-bg-secondary: #f1f5f9;         /* Nền nút filter, khối phụ */
+    --color-bg-table-header: #f0f4f9;      /* Nền tiêu đề bảng */
+    --color-bg-subgroup-border: #d4e4f7;   /* Viền subgroup */
+    --color-bg-progress-track: #e2e8f0;    /* Rãnh thanh progress */
+    --color-bg-progress-track-alt: #e8edf3;/* Rãnh progress phụ */
+
+    /* ----------------------------------------------------------------------
+       5. BORDER COLORS (Màu viền)
+       ---------------------------------------------------------------------- */
+    --color-border-subtle: #edf2f7;        /* Viền card tinh tế */
+    --color-border-light: #e2e8f0;         /* Viền tiêu chuẩn */
+    --color-border-default: #cbd5e1;       /* Viền đậm hơn / hover */
+    --color-border-table-head: #dbe3ee;    /* Viền dưới thead */
+}

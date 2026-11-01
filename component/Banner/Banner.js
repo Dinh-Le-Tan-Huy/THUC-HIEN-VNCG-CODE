@@ -96,7 +96,11 @@ function applyBannerProps(container, props) {
     if (bannerBreadcrumb && Array.isArray(breadcrumbs) && breadcrumbs.length > 0) {
         const homeIcon = bannerBreadcrumb.querySelector('.breadcrumb-home');
         bannerBreadcrumb.innerHTML = '';
-        if (homeIcon) bannerBreadcrumb.appendChild(homeIcon);
+        if (homeIcon) {
+            const iconsLib = typeof VNCG_ICONS !== "undefined" ? VNCG_ICONS : (window.VNCG_ICONS || {});
+            homeIcon.innerHTML = iconsLib.home || "";
+            bannerBreadcrumb.appendChild(homeIcon);
+        }
 
         breadcrumbs.forEach((item, index) => {
             const isLast = index === breadcrumbs.length - 1;

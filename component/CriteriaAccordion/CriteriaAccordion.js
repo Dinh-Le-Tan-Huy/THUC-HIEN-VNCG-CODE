@@ -89,14 +89,16 @@ function createGroupElement(groupData, columnMode, options = {}) {
 
     const badgeText = groupData.badge || `${calculateTotalCriteria(groupData)} tiêu chí`;
 
+    const groupChevronSvg = (typeof VNCG_ICONS !== "undefined" && VNCG_ICONS.get)
+        ? VNCG_ICONS.get("chevronDown", "criteria-group-icon")
+        : (window.VNCG_ICONS?.get ? window.VNCG_ICONS.get("chevronDown", "criteria-group-icon") : "");
+
     // Group Header
     const header = document.createElement("div");
     header.className = "criteria-group-header";
     header.innerHTML = `
         <div class="criteria-group-title-wrap">
-            <svg class="criteria-group-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+            ${groupChevronSvg}
             <h3 class="criteria-group-title">${escapeHtml(groupData.title || "")}</h3>
         </div>
         <span class="criteria-group-badge">${escapeHtml(badgeText)}</span>
@@ -193,14 +195,16 @@ function createSubGroupElement(subGroupData, columnMode, options = {}) {
     const code = subGroupData.code || "";
     const title = subGroupData.title || "";
 
+    const subGroupChevronSvg = (typeof VNCG_ICONS !== "undefined" && VNCG_ICONS.get)
+        ? VNCG_ICONS.get("chevronDown", "criteria-subgroup-icon")
+        : (window.VNCG_ICONS?.get ? window.VNCG_ICONS.get("chevronDown", "criteria-subgroup-icon") : "");
+
     const header = document.createElement("div");
     header.className = "criteria-subgroup-header";
     header.innerHTML = `
         <button type="button" class="criteria-subgroup-btn" aria-label="Toggle ${escapeHtml(code)}">
             <span>${escapeHtml(code)}</span>
-            <svg class="criteria-subgroup-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+            ${subGroupChevronSvg}
         </button>
         <span class="criteria-subgroup-title">${escapeHtml(title)}</span>
     `;
@@ -263,7 +267,7 @@ function createCriteriaTableElement(criteriaList, columnMode, options = {}) {
 
     if (!criteriaList || criteriaList.length === 0) {
         const colSpan = columnMode === "hdqt" ? 5 : 7;
-        tbody.innerHTML = `<tr><td colspan="${colSpan}" style="text-align: center; color: #94a3b8; padding: 20px;">Không có tiêu chí chi tiết</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="${colSpan}" style="text-align: center; color: var(--color-text-placeholder); padding: 20px;">Không có tiêu chí chi tiết</td></tr>`;
         table.appendChild(tbody);
         return table;
     }

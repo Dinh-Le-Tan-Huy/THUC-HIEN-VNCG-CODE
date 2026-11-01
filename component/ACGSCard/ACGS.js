@@ -89,7 +89,13 @@ function applyCardProps(card, props) {
     // 3. Icon
     const iconWrapper = card.querySelector(".acgs-card-icon-wrapper");
     if (iconWrapper) {
-        if (iconSvg) iconWrapper.innerHTML = iconSvg;
+        let svg = iconSvg;
+        if (!svg) {
+            const iconKey = props.iconType || "chart";
+            const iconsLib = typeof VNCG_ICONS !== "undefined" ? VNCG_ICONS : (window.VNCG_ICONS || {});
+            svg = (iconsLib.get ? iconsLib.get(iconKey, "acgs-card-icon") : iconsLib[iconKey]) || "";
+        }
+        if (svg) iconWrapper.innerHTML = svg;
         if (props.iconColor) iconWrapper.style.color = props.iconColor;
     }
 

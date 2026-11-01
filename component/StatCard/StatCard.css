@@ -163,22 +163,22 @@
 
 /* Theme Xanh lá (Tuân thủ) */
 .stat-card--green .stat-card-icon-wrapper {
-    background-color: #e6f9f0;
-    color: #00b074;
+    background-color: var(--color-success-subtle);
+    color: var(--color-success-accent);
 }
 
 .stat-card--green .stat-card-progress-fill {
-    background-color: #00b074;
+    background-color: var(--color-success-accent);
 }
 
 /* Theme Vàng / Hổ phách (Tuân thủ một phần) */
 .stat-card--yellow .stat-card-icon-wrapper {
-    background-color: #fef3c7;
-    color: #f59e0b;
+    background-color: var(--color-warning-amber-light);
+    color: var(--color-warning-amber);
 }
 
 .stat-card--yellow .stat-card-progress-fill {
-    background-color: #f59e0b;
+    background-color: var(--color-warning-amber);
 }
 
 /* Theme Cam (Level 2 / Cảnh báo) */
@@ -193,22 +193,22 @@
 
 /* Theme Đỏ (Chưa tuân thủ) */
 .stat-card--red .stat-card-icon-wrapper {
-    background-color: #fee2e2;
-    color: #ef4444;
+    background-color: var(--color-danger-light);
+    color: var(--color-danger-bright);
 }
 
 .stat-card--red .stat-card-progress-fill {
-    background-color: #ef4444;
+    background-color: var(--color-danger-bright);
 }
 
 /* Theme Xám (Không áp dụng) */
 .stat-card--gray .stat-card-icon-wrapper {
-    background-color: #f1f5f9;
-    color: #64748b;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-muted);
 }
 
 .stat-card--gray .stat-card-progress-fill {
-    background-color: #94a3b8;
+    background-color: var(--color-text-placeholder);
 }
 
 /* Theme Tím (Ví dụ: Level 1) */

@@ -302,14 +302,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         description: "Đánh giá và thực hiện các tiêu chí",
         link: "#",
         customClass: "acgs-card-primary",
-        iconColor: "#ffffff",
-        iconSvg: `
-            <svg class="acgs-card-icon" viewBox="0 0 28 28" fill="currentColor">
-                <rect x="3" y="17" width="5" height="8" rx="1.2"/>
-                <rect x="11.5" y="11" width="5" height="14" rx="1.2"/>
-                <rect x="20" y="5" width="5" height="20" rx="1.2"/>
-            </svg>
-        `
+        iconType: "chart",
+        iconColor: "var(--color-white)"
     });
 
     // 3. Card 2: Thực hiện VNCG Code
@@ -320,17 +314,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         description: "Minh bạch - Bền vững - Giá trị dài hạn",
         link: "#",
         customClass: "acgs-card-light",
-        titleColor: "#1565c0",
-        descColor: "#4a6585",
-        iconColor: "#1565c0",
-        iconSvg: `
-            <svg class="acgs-card-icon" viewBox="0 0 28 28" fill="currentColor">
-                <path d="M4 6.5C4 5.12 5.12 4 6.5 4H12c.55 0 1 .45 1 1v15.2c0 .35-.18.67-.48.85-.3.18-.68.19-.99.03-1.4-.73-3.12-.9-4.82-.48-.68.17-1.34.45-1.93.84-.48.32-.78.85-.78 1.42V6.5z"/>
-                <path d="M15 5c0-.55.45-1 1-1h5.5c1.38 0 2.5 1.12 2.5 2.5v16.36c0-.57-.3-1.1-.78-1.42-.59-.39-1.25-.67-1.93-.84-1.7-.42-3.42-.25-4.82.48-.31.16-.69.15-.99-.03-.3-.18-.48-.5-.48-.85V5z"/>
-                <line x1="17" y1="9" x2="21" y2="9" stroke="#eaf4ff" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="17" y1="13" x2="21" y2="13" stroke="#eaf4ff" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-        `
+        iconType: "book",
+        titleColor: "var(--color-primary)",
+        descColor: "var(--color-text-secondary)",
+        iconColor: "var(--color-primary)"
     });
 
     // 4. Tiêu đề đề mục: TỔNG QUAN
@@ -490,6 +477,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const yearDropdown = document.querySelector("#year-dropdown");
     const selectedYearEl = document.querySelector("#selected-year");
     if (yearDropdown && selectedYearEl) {
+        const arrowWrap = yearDropdown.querySelector(".detail-year-arrow-wrap");
+        if (arrowWrap) {
+            arrowWrap.innerHTML = window.VNCG_ICONS?.get ? window.VNCG_ICONS.get("chevronDown", "detail-year-arrow") : (window.VNCG_ICONS?.chevronDown || "");
+        }
         yearDropdown.addEventListener("click", () => {
             const currentYear = selectedYearEl.textContent.trim();
             selectedYearEl.textContent = currentYear === "2026" ? "2025" : "2026";

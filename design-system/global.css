@@ -4,6 +4,7 @@
    Nạp tokens & typography, thiết lập reset CSS và base styling toàn dự án
    ========================================================================== */
 
+@import url('./color.css');
 @import url('./tokens.css');
 @import url('./typography.css');
 

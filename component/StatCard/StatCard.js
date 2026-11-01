@@ -30,57 +30,8 @@
  * @param {Object} [props.customStyle] - Inline styles tùy biến
  */
 
-// Bộ SVG icon tích hợp sẵn tương ứng chính xác với hình chụp
-const STAT_CARD_ICONS = {
-    // 1. Icon Cúp vàng / đỏ (Tổng điểm đạt được)
-    trophy: `
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 4h-2V3a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v1H5a3 3 0 0 0-3 3v2a4 4 0 0 0 3.5 3.96A6.51 6.51 0 0 0 10.5 17.5v2.5H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-2.5v-2.5a6.51 6.51 0 0 0 5-3.54A4 4 0 0 0 22 9V7a3 3 0 0 0-3-3zM5 10a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1h1v3.88c0 .04 0 .08.02.12H5zm14-2a2 2 0 0 1-2 2h-.02V6H19a1 1 0 0 1 1 1v1z"/>
-        </svg>
-    `,
-    // 2. Icon Bia ngắm / Bullseye (Tỷ lệ đạt điểm)
-    target: `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <circle cx="12" cy="12" r="5"/>
-            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-        </svg>
-    `,
-    // 3. Icon Các tầng xếp chồng (Level 1, Level 2)
-    level: `
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2.5 7.5L12 13L21.5 7.5L12 2Z"/>
-            <path d="M2.5 11.5L12 17L21.5 11.5L20 10.6L12 15.2L4 10.6L2.5 11.5Z"/>
-            <path d="M2.5 15.5L12 21L21.5 15.5L20 14.6L12 19.2L4 14.6L2.5 15.5Z"/>
-        </svg>
-    `,
-    // 4. Icon Dấu tích xanh (Đáp ứng toàn bộ)
-    check: `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-    `,
-    // 5. Icon Đồng hồ chờ (Chưa đáp ứng đầy đủ / 1 phần)
-    clock: `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9.5"></circle>
-            <polyline points="12 7 12 12 15.5 14"></polyline>
-        </svg>
-    `,
-    // 6. Icon Dấu chấm than (Chưa tuân thủ)
-    alert: `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="6.5" x2="12" y2="13.5"></line>
-            <line x1="12" y1="17.5" x2="12.01" y2="17.5"></line>
-        </svg>
-    `,
-    // 7. Icon Dấu gạch ngang (Không áp dụng)
-    minus: `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="7" y1="12" x2="17" y2="12"></line>
-        </svg>
-    `
-};
+// Các icon SVG được quản lý tập trung tại design-system/icons.js (VNCG_ICONS)
+
 
 const STAT_CARD_FALLBACK_TEMPLATE = `
 <div class="stat-card">
@@ -238,8 +189,9 @@ function applyStatCardProps(card, props = {}) {
     const iconWrapper = card.querySelector(".stat-card-icon-wrapper");
     if (iconWrapper) {
         let svgHtml = iconSvg;
-        if (!svgHtml && iconType && STAT_CARD_ICONS[iconType]) {
-            svgHtml = STAT_CARD_ICONS[iconType];
+        if (!svgHtml && iconType) {
+            const iconsLib = typeof VNCG_ICONS !== "undefined" ? VNCG_ICONS : (window.VNCG_ICONS || {});
+            svgHtml = iconsLib[iconType] || "";
         }
 
         if (svgHtml) {

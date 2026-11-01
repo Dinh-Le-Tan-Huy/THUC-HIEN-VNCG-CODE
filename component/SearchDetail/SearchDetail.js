@@ -18,19 +18,9 @@
 
 const SEARCH_DETAIL_FALLBACK_TEMPLATE = `
 <div class="search-detail">
-    <span class="search-detail-icon search-detail-icon--left">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-    </span>
+    <span class="search-detail-icon search-detail-icon--left"></span>
     <input type="text" class="search-detail-input" placeholder="Tìm kiếm theo câu hỏi, trích dẫn, bằng chứng..." />
-    <button type="button" class="search-detail-btn" aria-label="Tìm kiếm">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-    </button>
+    <button type="button" class="search-detail-btn" aria-label="Tìm kiếm"></button>
 </div>
 `;
 
@@ -105,6 +95,16 @@ function applySearchDetailProps(element, props = {}) {
 
     const input = element.querySelector(".search-detail-input");
     const btn = element.querySelector(".search-detail-btn");
+    const iconLeft = element.querySelector(".search-detail-icon--left");
+
+    // Điền icon tìm kiếm từ design-system/icons.js
+    const searchSvg = (typeof VNCG_ICONS !== "undefined" ? VNCG_ICONS.search : window.VNCG_ICONS?.search) || "";
+    if (iconLeft && !iconLeft.innerHTML.trim() && searchSvg) {
+        iconLeft.innerHTML = searchSvg;
+    }
+    if (btn && !btn.innerHTML.trim() && searchSvg) {
+        btn.innerHTML = searchSvg;
+    }
 
     if (input) {
         if (placeholder) input.placeholder = placeholder;
