@@ -145,6 +145,7 @@
     border-radius: var(--radius-full);
     background-color: var(--color-success-emerald);
     width: 0%;
+    min-width: 6px;
     transition: width var(--transition-progress);
 }
 
@@ -160,20 +161,54 @@
    4. VARIANTS THEO MÀU & HÌNH ẢNH (Image 1 Themes)
    ========================================================================== */
 
-/* Theme Đỏ (Ví dụ: Tổng điểm) */
-.stat-card--red .stat-card-icon-wrapper {
-    background-color: var(--color-danger-light);
-    color: var(--color-danger-bright);
-}
-
-/* Theme Xanh lá (Ví dụ: Tỷ lệ đạt điểm) */
+/* Theme Xanh lá (Tuân thủ) */
 .stat-card--green .stat-card-icon-wrapper {
-    background-color: var(--color-success-subtle);
-    color: var(--color-success-dark);
+    background-color: #e6f9f0;
+    color: #00b074;
 }
 
 .stat-card--green .stat-card-progress-fill {
-    background-color: var(--color-success-progress);
+    background-color: #00b074;
+}
+
+/* Theme Vàng / Hổ phách (Tuân thủ một phần) */
+.stat-card--yellow .stat-card-icon-wrapper {
+    background-color: #fef3c7;
+    color: #f59e0b;
+}
+
+.stat-card--yellow .stat-card-progress-fill {
+    background-color: #f59e0b;
+}
+
+/* Theme Cam (Level 2 / Cảnh báo) */
+.stat-card--orange .stat-card-icon-wrapper {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.stat-card--orange .stat-card-progress-fill {
+    background-color: var(--color-warning-bright);
+}
+
+/* Theme Đỏ (Chưa tuân thủ) */
+.stat-card--red .stat-card-icon-wrapper {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.stat-card--red .stat-card-progress-fill {
+    background-color: #ef4444;
+}
+
+/* Theme Xám (Không áp dụng) */
+.stat-card--gray .stat-card-icon-wrapper {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.stat-card--gray .stat-card-progress-fill {
+    background-color: #94a3b8;
 }
 
 /* Theme Tím (Ví dụ: Level 1) */
@@ -184,16 +219,6 @@
 
 .stat-card--purple .stat-card-progress-fill {
     background-color: var(--color-purple-bar);
-}
-
-/* Theme Cam (Ví dụ: Level 2) */
-.stat-card--orange .stat-card-icon-wrapper {
-    background-color: var(--color-warning-light);
-    color: var(--color-warning);
-}
-
-.stat-card--orange .stat-card-progress-fill {
-    background-color: var(--color-warning-bright);
 }
 
 /* ==========================================================================

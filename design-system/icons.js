@@ -47,6 +47,21 @@ const VNCG_ICONS = {
         </svg>
     `,
 
+    // 6. Icon Dấu chấm than (Chưa tuân thủ)
+    alert: `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="6.5" x2="12" y2="13.5"></line>
+            <line x1="12" y1="17.5" x2="12.01" y2="17.5"></line>
+        </svg>
+    `,
+
+    // 7. Icon Dấu gạch ngang (Không áp dụng)
+    minus: `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="12" x2="17" y2="12"></line>
+        </svg>
+    `,
+
     // 6. Icon Tìm kiếm
     search: `
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">

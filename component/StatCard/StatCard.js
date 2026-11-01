@@ -66,6 +66,19 @@ const STAT_CARD_ICONS = {
             <circle cx="12" cy="12" r="9.5"></circle>
             <polyline points="12 7 12 12 15.5 14"></polyline>
         </svg>
+    `,
+    // 6. Icon Dấu chấm than (Chưa tuân thủ)
+    alert: `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="6.5" x2="12" y2="13.5"></line>
+            <line x1="12" y1="17.5" x2="12.01" y2="17.5"></line>
+        </svg>
+    `,
+    // 7. Icon Dấu gạch ngang (Không áp dụng)
+    minus: `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="12" x2="17" y2="12"></line>
+        </svg>
     `
 };
 

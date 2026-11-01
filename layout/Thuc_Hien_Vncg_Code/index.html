@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="banner"></div>
+    <main class="main-content">
+
+        <div id="acgs-cards-container" class="acgs-cards-grid"></div>
+
+        <section class="section-overview" aria-labelledby="overview-heading">
+            <div id="overview-title"></div>
+
+            <div id="stat-cards-overview" class="overview-stats-grid"></div>
+
+            <div class="overview-details-grid">
+                <div id="question-status-container"></div>
+            </div>
+        </section>
+
+        <section class="section-detail" aria-labelledby="detail-heading">
+
+            <div id="detail-title"></div>
+
+            <div class="detail-toolbar">
+
+                <div id="search-detail-container" class="detail-search-wrap"></div>
+
+                <div class="detail-year-select-wrap">
+                    <span class="detail-year-label">NĂM BÁO CÁO:</span>
+                    <div class="detail-year-dropdown" id="year-dropdown" tabindex="0" role="button"
+                        aria-label="Chọn năm báo cáo">
+                        <span class="detail-year-value" id="selected-year">2026</span>
+                        <svg class="detail-year-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+            <div id="criteria-accordion-container"></div>
+
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         SCRIPTS — nạp theo đúng thứ tự phụ thuộc
+         1. Design System → 2. Components → 3. Mock Data → 4. Screen
+    ============================================================ -->
+
+    <!-- 1. Design System: Icons library dùng chung -->
+    <script src="../../design-system/icons.js"></script>
+
+    <!-- 2. Component Scripts -->
+    <script src="../../component/Banner/Banner.js"></script>
+    <script src="../../component/ACGSCard/ACGS.js"></script>
+    <script src="../../component/SectionTitle/SectionTitle.js"></script>
+    <script src="../../component/StatCard/StatCard.js"></script>
+    <script src="../../component/CategoryProgress/CategoryProgress.js"></script>
+    <script src="../../component/SearchDetail/SearchDetail.js"></script>
+    <script src="../../component/CriteriaAccordion/CriteriaAccordion.js"></script>
+
+    <!-- 3. Mock Data -->
+    <script src="../../Mock_Data/DataVNCGCode.js"></script>
+
+    <!-- 4. Screen Script (nạp sau cùng, sau khi tất cả components đã sẵn sàng) -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

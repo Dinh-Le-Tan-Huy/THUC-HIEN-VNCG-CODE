@@ -361,9 +361,21 @@ function renderAcgsRowHtml(item) {
  * Render HTML cho một dòng bảng HĐQT (5 cột)
  */
 function renderHdqtRowHtml(item) {
-    const isCompliant = item.status === "TUÂN THỦ" || item.isCompliant === true;
-    const badgeClass = isCompliant ? "criteria-badge--compliant" : "criteria-badge--non-compliant";
-    const statusText = item.status || (isCompliant ? "TUÂN THỦ" : "KHÔNG TUÂN THỦ");
+    const rawStatus = item.status || (item.isCompliant ? "TUÂN THỦ" : "KHÔNG TUÂN THỦ");
+    const statusText = String(rawStatus).trim();
+    const normalized = statusText.toUpperCase();
+
+    let badgeClass = "criteria-badge--compliant";
+
+    if (normalized === "TUÂN THỦ 1 PHẦN" || normalized === "TUÂN THỦ MỘT PHẦN") {
+        badgeClass = "criteria-badge--partial";
+    } else if (normalized === "KHÔNG TUÂN THỦ" || normalized === "CHƯA TUÂN THỦ") {
+        badgeClass = "criteria-badge--non-compliant";
+    } else if (normalized === "KHÔNG ÁP DỤNG" || normalized === "N/A") {
+        badgeClass = "criteria-badge--na";
+    } else if (normalized === "TUÂN THỦ") {
+        badgeClass = "criteria-badge--compliant";
+    }
 
     // Giải thích
     let explanationHtml = "";

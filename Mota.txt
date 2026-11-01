@@ -1,0 +1,35 @@
+VNCG - TAI LIEU DU AN
+Vanilla HTML5/CSS3/JS -- Component-Driven, Design System tap trung.
+
+================================================================================
+CONG DUNG TUNG COMPONENT (component/)
+================================================================================
+
+1. ACGSCard (component/ACGSCard)
+   - The card chuc nang dieu huong phan he ACGS.
+   - Gom: Anh nen, icon, tieu de, mo ta va link chuyen trang.
+
+2. Banner (component/Banner)
+   - Header lon o dau moi man hinh.
+   - Gom: Breadcrumb, badge tag, tieu de chinh, doan mo ta va hinh nen.
+
+3. CategoryProgress (component/CategoryProgress)
+   - The tien do & diem so theo nhom tieu chi (A, B, C, D...).
+   - Tu dong tinh ty le %, ve thanh progress bar, huy hieu chu cai.
+
+4. CriteriaAccordion (component/CriteriaAccordion)
+   - Bang danh sach tieu chi 3 cap dang dong/mo (Accordion).
+   - Ho tro 2 che do cot: 'acgs' (7 cot) va 'hdqt' (5 cot).
+   - Tich hop tim kiem noi dung va modal xem bang chung/thuyet minh.
+
+5. SearchDetail (component/SearchDetail)
+   - Thanh input tim kiem tieu chi / cau hoi / bang chung.
+   - Co san icon kinh lup, bat su kien go input / Enter / click nut tim.
+
+6. SectionTitle (component/SectionTitle)
+   - Tieu de phan chia tung vung noi dung (Section Header).
+   - Co vach doc mau xanh thuong hieu (#0947a5), tieu de in hoa va mo ta phu.
+
+7. StatCard (component/StatCard)
+   - The thong ke chi so KPI tong quan (Tong diem, Ty le %, Level 1, Level 2...).
+   - Tich hop 5 icon san (trophy, target, level, check, clock), progress bar, da dang mau sac (red, green, purple, orange).

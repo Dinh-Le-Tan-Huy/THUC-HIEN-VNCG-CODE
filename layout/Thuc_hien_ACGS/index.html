@@ -4,32 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
     <title>Thực hiện ACGS - PV Drilling</title>
-    <meta name="description" content="Tổng quan và chi tiết kết quả thực hiện bộ tiêu chí Quản trị công ty theo chuẩn ACGS của PV Drilling.">
-
-    <!--
-    ============================================================
-    STYLESHEET
-    Fonts được nạp tập trung trong design-system/typography.css
-    (không cần @import Google Fonts ở đây)
-    ============================================================
-    -->
+    <meta name="description"
+        content="Tổng quan và chi tiết kết quả thực hiện bộ tiêu chí Quản trị công ty theo chuẩn ACGS của PV Drilling.">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-    <!-- ============================================================
-         BANNER COMPONENT
-         Nội dung nhận props từ script.js → renderBanner()
-    ============================================================ -->
     <div id="banner"></div>
-
-    <!-- ============================================================
-         MAIN CONTENT
-    ============================================================ -->
     <main class="main-content">
 
         <!-- 1. ACGS Cards (2 card đầu trang) -->
@@ -67,14 +50,11 @@
 
                 <!-- Nút chọn Cấp độ -->
                 <div class="detail-level-filters" role="group" aria-label="Chọn cấp độ">
-                    <button id="btn-level-1" type="button"
-                        class="level-filter-btn level-filter-btn--active"
+                    <button id="btn-level-1" type="button" class="level-filter-btn level-filter-btn--active"
                         data-level="1">
                         Cấp độ 1
                     </button>
-                    <button id="btn-level-2" type="button"
-                        class="level-filter-btn"
-                        data-level="2">
+                    <button id="btn-level-2" type="button" class="level-filter-btn" data-level="2">
                         Cấp độ 2
                     </button>
                 </div>
@@ -85,13 +65,11 @@
                 <!-- Dropdown chọn Năm báo cáo -->
                 <div class="detail-year-select-wrap">
                     <span class="detail-year-label">NĂM BÁO CÁO:</span>
-                    <div class="detail-year-dropdown" id="year-dropdown" tabindex="0"
-                        role="button" aria-label="Chọn năm báo cáo">
+                    <div class="detail-year-dropdown" id="year-dropdown" tabindex="0" role="button"
+                        aria-label="Chọn năm báo cáo">
                         <span class="detail-year-value" id="selected-year">2026</span>
-                        <svg class="detail-year-arrow" viewBox="0 0 24 24"
-                            width="14" height="14" fill="none"
-                            stroke="currentColor" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round"
+                        <svg class="detail-year-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
                             aria-hidden="true">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
