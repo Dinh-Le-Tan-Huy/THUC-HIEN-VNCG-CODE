@@ -1,0 +1,140 @@
+/* ==========================================================================
+   DESIGN SYSTEM - DESIGN TOKENS
+   File: design-system/tokens.css
+   Chứa toàn bộ token màu sắc, khoảng cách, bo góc, bóng đổ và hiệu ứng
+   ========================================================================== */
+
+:root {
+    /* ----------------------------------------------------------------------
+       1. BRAND & PRIMARY COLORS
+       ---------------------------------------------------------------------- */
+    --color-primary: #1565c0;              /* Xanh dương chính */
+    --color-primary-hover: #0d47a1;        /* Xanh dương hover */
+    --color-primary-sub: #1e60b5;          /* Xanh dương tiêu đề / bảng */
+    --color-primary-sub-hover: #18529d;    /* Xanh dương bảng hover */
+    --color-primary-dark: #0947a5;         /* Xanh navy đậm cho card/bar */
+    --color-primary-deep: #0b1f3a;         /* Xanh navy tối cho text tiêu đề */
+    --color-primary-navy: #01193a;         /* Xanh navy siêu đậm cho banner */
+    --color-primary-light: #e8f1fc;        /* Nền xanh nhạt subgroup */
+    --color-primary-light-hover: #ddeaf9;  /* Nền subgroup hover */
+    --color-primary-soft: #e0edff;         /* Nền badge / icon xanh dương */
+    --color-accent: #0099ff;               /* Xanh cyan điểm nhấn */
+
+    /* ----------------------------------------------------------------------
+       2. STATUS & THEME COLORS (Thành công, Cảnh báo, Nguy hiểm, v.v.)
+       ---------------------------------------------------------------------- */
+    /* Success / Green */
+    --color-success: #16a34a;              /* Xanh lá chuẩn (YES / Compliant) */
+    --color-success-dark: #059669;         /* Xanh lá đậm */
+    --color-success-accent: #00b074;       /* Xanh mint/ngọc thanh tiến độ */
+    --color-success-emerald: #10b981;      /* Xanh emerald */
+    --color-success-light: #dcfce7;        /* Nền badge xanh lá */
+    --color-success-subtle: #d1fae5;       /* Nền icon xanh lá nhạt */
+    --color-success-soft: #f3fbf7;         /* Nền card mềm xanh lá */
+    --color-success-progress: #00c08b;     /* Thanh progress xanh lá */
+
+    /* Warning / Orange */
+    --color-warning: #ea580c;              /* Cam đậm */
+    --color-warning-bright: #f97316;       /* Cam tươi (Level 2 / Chưa đáp ứng) */
+    --color-warning-light: #ffedd5;        /* Nền badge / icon cam */
+    --color-warning-border: #fed7aa;       /* Viền card cam */
+    --color-warning-soft: #fff9f5;         /* Nền card mềm cam */
+
+    /* Danger / Red */
+    --color-danger: #dc2626;               /* Đỏ chuẩn (NO / Non-compliant) */
+    --color-danger-bright: #ef4444;        /* Đỏ tươi icon */
+    --color-danger-light: #fee2e2;         /* Nền icon đỏ nhạt */
+
+    /* Info / Purple */
+    --color-purple: #7c3aed;               /* Tím chính (Level 1) */
+    --color-purple-dark: #9333ea;          /* Tím đậm */
+    --color-purple-bar: #8b5cf6;           /* Tím thanh tiến độ */
+    --color-purple-light: #f3e8ff;         /* Nền badge tím */
+    --color-purple-soft: #ede9fe;          /* Nền icon tím nhạt */
+
+    /* ----------------------------------------------------------------------
+       3. NEUTRAL & TEXT COLORS
+       ---------------------------------------------------------------------- */
+    --color-white: #ffffff;
+    --color-text-title: #0b1f3a;           /* Tiêu đề cấp cao */
+    --color-text-heading: #0f172a;         /* Tiêu đề section */
+    --color-text-main: #1e293b;            /* Văn bản chính, body */
+    --color-text-body: #334155;            /* Văn bản chi tiết bảng */
+    --color-text-secondary: #475569;       /* Văn bản phụ, nút filter */
+    --color-text-muted: #64748b;           /* Văn bản mờ, chú thích, icon */
+    --color-text-dim: #8c9ba5;             /* Nhãn phụ uppercase */
+    --color-text-placeholder: #94a3b8;     /* Chữ placeholder, mô tả nhỏ */
+    --color-text-white-trans-90: rgba(255, 255, 255, 0.92);
+    --color-text-white-trans-80: rgba(255, 255, 255, 0.85);
+
+    /* ----------------------------------------------------------------------
+       4. BACKGROUND COLORS
+       ---------------------------------------------------------------------- */
+    --color-bg-page: #f8fafc;              /* Nền toàn trang */
+    --color-bg-card: #ffffff;              /* Nền card/panel */
+    --color-bg-secondary: #f1f5f9;         /* Nền nút filter, khối phụ */
+    --color-bg-table-header: #f0f4f9;      /* Nền tiêu đề bảng */
+    --color-bg-subgroup-border: #d4e4f7;   /* Viền subgroup */
+    --color-bg-progress-track: #e2e8f0;    /* Rãnh thanh progress */
+    --color-bg-progress-track-alt: #e8edf3;/* Rãnh progress phụ */
+
+    /* ----------------------------------------------------------------------
+       5. BORDER COLORS
+       ---------------------------------------------------------------------- */
+    --color-border-subtle: #edf2f7;        /* Viền card tinh tế */
+    --color-border-light: #e2e8f0;         /* Viền tiêu chuẩn */
+    --color-border-default: #cbd5e1;       /* Viền đậm hơn / hover */
+    --color-border-table-head: #dbe3ee;    /* Viền dưới thead */
+
+    /* ----------------------------------------------------------------------
+       6. SPACING TOKENS (4px Grid Scale)
+       ---------------------------------------------------------------------- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-14: 56px;
+    --space-15: 60px;
+    --space-16: 64px;
+    --space-20: 80px;
+
+    /* ----------------------------------------------------------------------
+       7. BORDER RADIUS TOKENS
+       ---------------------------------------------------------------------- */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+    --radius-2xl: 14px;
+    --radius-3xl: 16px;
+    --radius-4xl: 22px;
+    --radius-full: 9999px;
+
+    /* ----------------------------------------------------------------------
+       8. BOX SHADOWS
+       ---------------------------------------------------------------------- */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+    --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.07), 0 3px 8px -2px rgba(15, 23, 42, 0.03);
+    --shadow-card-hover-lg: 0 10px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+    --shadow-blue: 0 4px 16px rgba(6, 45, 110, 0.15);
+    --shadow-blue-hover: 0 8px 28px rgba(6, 45, 110, 0.22);
+    --shadow-focus: 0 0 0 3px rgba(21, 101, 192, 0.12);
+
+    /* ----------------------------------------------------------------------
+       9. TRANSITIONS & ANIMATIONS
+       ---------------------------------------------------------------------- */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s ease;
+    --transition-smooth: 0.25s ease;
+    --transition-slow: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-progress: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}

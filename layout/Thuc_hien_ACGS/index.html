@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Thực hiện ACGS - PV Drilling</title>
+    <meta name="description" content="Tổng quan và chi tiết kết quả thực hiện bộ tiêu chí Quản trị công ty theo chuẩn ACGS của PV Drilling.">
+
+    <!--
+    ============================================================
+    STYLESHEET
+    Fonts được nạp tập trung trong design-system/typography.css
+    (không cần @import Google Fonts ở đây)
+    ============================================================
+    -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         BANNER COMPONENT
+         Nội dung nhận props từ script.js → renderBanner()
+    ============================================================ -->
+    <div id="banner"></div>
+
+    <!-- ============================================================
+         MAIN CONTENT
+    ============================================================ -->
+    <main class="main-content">
+
+        <!-- 1. ACGS Cards (2 card đầu trang) -->
+        <div id="acgs-cards-container" class="acgs-cards-grid"></div>
+
+        <!-- 2. SECTION: TỔNG QUAN THỰC HIỆN ACGS -->
+        <section class="section-overview" aria-labelledby="overview-heading">
+
+            <!-- Tiêu đề section (SectionTitle component) -->
+            <div id="overview-title"></div>
+
+            <!-- 4 Stat Cards: Tổng điểm, Tỷ lệ, Level 1, Level 2 -->
+            <div id="stat-cards-overview" class="overview-stats-grid"></div>
+
+            <!-- Khối 2 cột: Tình trạng câu hỏi (Trái) & Điểm theo nhóm tiêu chí (Phải) -->
+            <div class="overview-details-grid">
+
+                <!-- Cột trái: Tình trạng thực hiện câu hỏi -->
+                <div id="question-status-container"></div>
+
+                <!-- Cột phải: Điểm theo nhóm tiêu chí (CategoryProgress) -->
+                <div id="category-progress-container"></div>
+
+            </div>
+        </section>
+
+        <!-- 3. SECTION: CHI TIẾT TIÊU CHÍ ACGS -->
+        <section class="section-detail" aria-labelledby="detail-heading">
+
+            <!-- Tiêu đề section (SectionTitle component) -->
+            <div id="detail-title"></div>
+
+            <!-- Thanh công cụ: Cấp độ 1/2 | Tìm kiếm | Năm báo cáo -->
+            <div class="detail-toolbar">
+
+                <!-- Nút chọn Cấp độ -->
+                <div class="detail-level-filters" role="group" aria-label="Chọn cấp độ">
+                    <button id="btn-level-1" type="button"
+                        class="level-filter-btn level-filter-btn--active"
+                        data-level="1">
+                        Cấp độ 1
+                    </button>
+                    <button id="btn-level-2" type="button"
+                        class="level-filter-btn"
+                        data-level="2">
+                        Cấp độ 2
+                    </button>
+                </div>
+
+                <!-- Thanh tìm kiếm (SearchDetail component) -->
+                <div id="search-detail-container" class="detail-search-wrap"></div>
+
+                <!-- Dropdown chọn Năm báo cáo -->
+                <div class="detail-year-select-wrap">
+                    <span class="detail-year-label">NĂM BÁO CÁO:</span>
+                    <div class="detail-year-dropdown" id="year-dropdown" tabindex="0"
+                        role="button" aria-label="Chọn năm báo cáo">
+                        <span class="detail-year-value" id="selected-year">2026</span>
+                        <svg class="detail-year-arrow" viewBox="0 0 24 24"
+                            width="14" height="14" fill="none"
+                            stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bảng chi tiết tiêu chí 3 cấp (CriteriaAccordion component) -->
+            <div id="criteria-accordion-container"></div>
+
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         SCRIPTS — nạp theo đúng thứ tự phụ thuộc
+         1. Design System → 2. Components → 3. Mock Data → 4. Screen
+    ============================================================ -->
+
+    <!-- 1. Design System: Icons library dùng chung -->
+    <script src="../../design-system/icons.js"></script>
+
+    <!-- 2. Component Scripts -->
+    <script src="../../component/Banner/Banner.js"></script>
+    <script src="../../component/ACGSCard/ACGS.js"></script>
+    <script src="../../component/SectionTitle/SectionTitle.js"></script>
+    <script src="../../component/StatCard/StatCard.js"></script>
+    <script src="../../component/CategoryProgress/CategoryProgress.js"></script>
+    <script src="../../component/SearchDetail/SearchDetail.js"></script>
+    <script src="../../component/CriteriaAccordion/CriteriaAccordion.js"></script>
+
+    <!-- 3. Mock Data -->
+    <script src="../../Mock_Data/DataACGS.js"></script>
+
+    <!-- 4. Screen Script (nạp sau cùng, sau khi tất cả components đã sẵn sàng) -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

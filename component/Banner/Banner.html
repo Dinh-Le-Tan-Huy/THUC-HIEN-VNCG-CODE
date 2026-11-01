@@ -1,0 +1,38 @@
+<!-- ==========================================================================
+     COMPONENT: BANNER (Dùng chung, nhận props động từ screen)
+     File: component/Banner/Banner.html
+     ========================================================================== -->
+
+<section class="banner-section">
+    <div class="banner-container">
+        <!-- Ảnh nền Banner -->
+        <div class="banner-media">
+            <img src="" alt="" class="banner-img">
+        </div>
+
+        <!-- Nội dung Banner -->
+        <div class="banner-content">
+            <!-- Breadcrumbs (Đường dẫn điều hướng) -->
+            <nav class="banner-breadcrumb" aria-label="Breadcrumb">
+                <a href="#" class="breadcrumb-home" aria-label="Trang chủ" title="Trang chủ">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                </a>
+                <!-- Các mục breadcrumb sẽ được render động từ props -->
+            </nav>
+
+            <!-- Tag / Badge -->
+            <div class="banner-badge" style="display: none;">
+                <span class="badge-dot"></span>
+                <span class="badge-text"></span>
+            </div>
+
+            <!-- Tiêu đề chính -->
+            <h1 class="banner-title"></h1>
+
+            <!-- Đoạn mô tả -->
+            <p class="banner-description" style="display: none;"></p>
+        </div>
+    </div>
+</section>

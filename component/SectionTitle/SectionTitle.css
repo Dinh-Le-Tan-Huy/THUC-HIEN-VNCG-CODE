@@ -1,0 +1,85 @@
+/* ==========================================================================
+   COMPONENT STYLES: SECTION TITLE
+   File: component/SectionTitle/SectionTitle.css
+   ========================================================================== */
+
+:root {
+    --section-title-bar-color: var(--color-primary-dark);
+    --section-title-color: var(--color-text-heading);
+    --section-desc-color: var(--color-text-muted);
+    --section-title-font: var(--font-family-heading);
+    --section-desc-font: var(--font-family-body);
+}
+
+/* Container */
+.section-title {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    width: 100%;
+}
+
+/* Accent Vertical Bar */
+.section-title-bar {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 4px;
+    height: 24px;
+    background-color: var(--section-title-bar-color);
+    border-radius: var(--radius-xs);
+    margin-top: 2px;
+}
+
+/* Content (Heading + Description) */
+.section-title-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    flex: 1;
+}
+
+/* Heading */
+.section-title-heading {
+    margin: 0;
+    font-family: var(--section-title-font);
+    font-size: clamp(20px, 1.8vw, 24px);
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--line-height-snug);
+    color: var(--section-title-color);
+    letter-spacing: var(--letter-spacing-snug);
+    text-transform: uppercase;
+}
+
+/* Description / Subtitle */
+.section-title-desc {
+    margin: 0;
+    font-family: var(--section-desc-font);
+    font-size: clamp(13px, 1vw, 15px);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-relaxed);
+    color: var(--section-desc-color);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .section-title {
+        gap: 10px;
+    }
+
+    .section-title-bar {
+        width: 3.5px;
+        height: 20px;
+        margin-top: 1px;
+    }
+
+    .section-title-heading {
+        font-size: var(--font-size-2xl);
+    }
+
+    .section-title-desc {
+        font-size: var(--font-size-base);
+    }
+}

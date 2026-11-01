@@ -1,0 +1,81 @@
+/* ==========================================================================
+   COMPONENT STYLES: SEARCH DETAIL
+   File: component/SearchDetail/SearchDetail.css
+   Style thanh tìm kiếm cho phần chi tiết tiêu chí ACGS
+   ========================================================================== */
+
+.search-detail {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-xl);
+    padding: 0 var(--space-4);
+    height: 42px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
+    gap: var(--space-3);
+    font-family: var(--font-family-sans);
+}
+
+.search-detail:hover {
+    border-color: var(--color-border-default);
+}
+
+.search-detail:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus);
+    background-color: var(--color-bg-card);
+}
+
+/* 1. Left Icon */
+.search-detail-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-placeholder);
+    flex-shrink: 0;
+}
+
+.search-detail:focus-within .search-detail-icon {
+    color: var(--color-primary);
+}
+
+/* 2. Input Field */
+.search-detail-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: var(--font-size-md);
+    color: var(--color-text-main);
+    padding: 0;
+    line-height: var(--line-height-base);
+    min-width: 0;
+}
+
+.search-detail-input::placeholder {
+    color: var(--color-text-placeholder);
+    font-weight: var(--font-weight-regular);
+}
+
+/* 3. Right Action / Submit Button */
+.search-detail-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-placeholder);
+    transition: color var(--transition-base), transform var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.search-detail-btn:hover {
+    color: var(--color-primary);
+    transform: scale(1.08);
+}

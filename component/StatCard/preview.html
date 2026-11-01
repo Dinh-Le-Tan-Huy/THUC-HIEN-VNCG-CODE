@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Stat Card Component</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../design-system/global.css">
+    <link rel="stylesheet" href="./StatCard.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #f8fafc;
+            font-family: 'Montserrat', 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+        .section-header {
+            margin-bottom: -16px;
+        }
+        .section-header h3 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .section-header p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+        /* Grid 4 cards (Hình 1) */
+        .stat-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        /* Grid 2 cards (Hình 2) */
+        .stat-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 720px;
+        }
+        @media (max-width: 1024px) {
+            .stat-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .stat-grid-4, .stat-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- NHÓM 1: CÁC CARD TỔNG QUAN / LEVEL (HÌNH 1) -->
+        <div class="section-header">
+            <h3>1. Chỉ số tổng quan & Level (Hình 1)</h3>
+            <p>4 card hiển thị điểm, tỷ lệ và phân bổ level với progress bar</p>
+        </div>
+        <div id="stat-overview-container" class="stat-grid-4"></div>
+
+        <!-- NHÓM 2: CÁC CARD TRẠNG THÁI CÂU HỎI (HÌNH 2) -->
+        <div class="section-header">
+            <h3>2. Trạng thái đáp ứng câu hỏi (Hình 2)</h3>
+            <p>2 card phân loại câu hỏi với tone màu dịu (soft-green, soft-orange)</p>
+        </div>
+        <div id="stat-questions-container" class="stat-grid-2"></div>
+    </div>
+
+    <script src="./StatCard.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Render 4 cards Hình 1
+            renderStatCards("#stat-overview-container", [
+                {
+                    theme: "red",
+                    iconType: "trophy",
+                    title: "TỔNG ĐIỂM ĐẠT ĐƯỢC",
+                    value: "143",
+                    suffix: "/ 209 điểm",
+                    note: "Điểm đạt được trên tổng điểm tối đa"
+                },
+                {
+                    theme: "green",
+                    iconType: "target",
+                    title: "TỶ LỆ ĐẠT ĐIỂM",
+                    value: "68%",
+                    progress: 68
+                },
+                {
+                    theme: "purple",
+                    iconType: "level",
+                    title: "LEVEL 1",
+                    value: "131",
+                    suffix: "/ 179 điểm",
+                    progress: 73,
+                    progressLabel: "Đạt <b>73%</b>"
+                },
+                {
+                    theme: "orange",
+                    iconType: "level",
+                    title: "LEVEL 2",
+                    value: "12",
+                    suffix: "/ 30 điểm",
+                    progress: 40,
+                    progressLabel: "Đạt <b>40%</b>"
+                }
+            ]);
+
+            // 2. Render 2 cards Hình 2
+            renderStatCards("#stat-questions-container", [
+                {
+                    variant: "soft-green",
+                    iconType: "check",
+                    title: "Đáp ứng toàn bộ",
+                    value: "146",
+                    suffix: "câu hỏi",
+                    subValue: "76%"
+                },
+                {
+                    variant: "soft-orange",
+                    iconType: "clock",
+                    title: "Chưa đáp ứng đầy đủ hoặc đáp ứng 1 phần",
+                    value: "47",
+                    suffix: "câu hỏi",
+                    subValue: "24%"
+                }
+            ]);
+        });
+    </script>
+</body>
+</html>

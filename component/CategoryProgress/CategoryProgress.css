@@ -1,0 +1,183 @@
+/* ==========================================================================
+   COMPONENT STYLES: CATEGORY PROGRESS (ĐIỂM THEO NHÓM TIÊU CHÍ)
+   File: component/CategoryProgress/CategoryProgress.css
+   Style bảng tiến độ và điểm số theo nhóm tiêu chí ACGS (A, B, C, D)
+   ========================================================================== */
+
+.category-progress-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-3xl);
+    padding: var(--space-7);
+    box-shadow: var(--shadow-card);
+    font-family: var(--font-family-sans);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.category-progress-card:hover {
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* ==========================================================================
+   1. HEADER
+   ========================================================================== */
+.category-progress-header {
+    margin-bottom: 22px;
+}
+
+.category-progress-title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-text-title);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    line-height: var(--line-height-heading);
+}
+
+/* ==========================================================================
+   2. DANH SÁCH NHÓM TIÊU CHÍ
+   ========================================================================== */
+.category-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.category-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.category-item-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-width: 0;
+}
+
+/* Circular Letter Badge */
+.category-item-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary-hover);
+}
+
+/* Badge colors */
+.category-item-badge--A {
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary-hover);
+}
+
+.category-item-badge--B {
+    background-color: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.category-item-badge--C {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.category-item-badge--D {
+    background-color: var(--color-purple-light);
+    color: var(--color-purple-dark);
+}
+
+.category-item-name {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-main);
+    line-height: var(--line-height-base);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Stats (Score & %) */
+.category-item-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-shrink: 0;
+    font-family: var(--font-family-heading);
+}
+
+.category-item-score {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+}
+
+.category-item-score b {
+    color: var(--color-text-title);
+    font-weight: var(--font-weight-bold);
+}
+
+.category-item-percent {
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    min-width: 36px;
+    text-align: right;
+}
+
+/* Progress bar */
+.category-item-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-bg-progress-track-alt);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.category-item-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    width: 0%;
+    transition: width var(--transition-progress);
+}
+
+/* ==========================================================================
+   3. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 640px) {
+    .category-progress-card {
+        padding: var(--space-5);
+    }
+
+    .category-item-name {
+        white-space: normal;
+        font-size: var(--font-size-base);
+    }
+
+    .category-item-stats {
+        gap: 10px;
+    }
+
+    .category-item-score,
+    .category-item-percent {
+        font-size: var(--font-size-base);
+    }
+}

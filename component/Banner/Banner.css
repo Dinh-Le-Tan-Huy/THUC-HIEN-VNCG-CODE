@@ -1,0 +1,257 @@
+/* ==========================================================================
+   COMPONENT STYLES: BANNER
+   File: component/Banner/Banner.css
+   ========================================================================== */
+
+:root {
+    --banner-font-heading: var(--font-family-heading);
+    --banner-font-body: var(--font-family-body);
+    --banner-color-white: var(--color-white);
+    --banner-color-text-desc: var(--color-text-white-trans-90);
+    --banner-color-breadcrumb: var(--color-text-white-trans-80);
+    --banner-color-accent: var(--color-accent);
+}
+
+/* Banner Section Frame */
+.banner-section {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-primary-navy);
+    overflow: hidden;
+}
+
+/* Banner Frame Aspect & Container */
+.banner-container {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Image Layer */
+.banner-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}
+
+/* Banner Content Wrapper */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 65px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* 1. Breadcrumbs */
+.banner-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    font-family: var(--banner-font-body);
+    font-size: var(--font-size-md);
+    color: var(--banner-color-breadcrumb);
+}
+
+.breadcrumb-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--banner-color-white);
+    text-decoration: none;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.breadcrumb-home:hover {
+    transform: translateY(-1px);
+    opacity: 0.85;
+}
+
+.breadcrumb-home svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+.breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: var(--font-size-normal);
+    line-height: var(--line-height-tight);
+    user-select: none;
+}
+
+.breadcrumb-link {
+    color: var(--banner-color-breadcrumb);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-base);
+}
+
+.breadcrumb-link:hover {
+    color: var(--banner-color-white);
+    text-decoration: underline;
+}
+
+.breadcrumb-current {
+    color: var(--banner-color-white);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* 2. Badge / Tag: QUAN HỆ NHÀ ĐẦU TƯ */
+.banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2, 8px);
+    padding: 7px 18px;
+    margin-bottom: 26px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    background: rgba(3, 28, 65, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 15, 45, 0.3);
+    transition: all var(--transition-slow);
+    user-select: none;
+}
+
+.banner-badge:hover {
+    border-color: rgba(255, 255, 255, 0.9);
+    background: rgba(3, 28, 65, 0.65);
+    box-shadow: 0 4px 22px rgba(0, 150, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+.badge-dot {
+    width: 6.5px;
+    height: 6.5px;
+    background-color: var(--banner-color-white);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.95);
+}
+
+.badge-text {
+    color: var(--banner-color-white);
+    font-family: var(--banner-font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+}
+
+/* 3. Title: THỰC HIỆN ACGS */
+.banner-title {
+    margin: 0 0 var(--space-5, 20px) 0;
+    color: var(--banner-color-white);
+    font-family: var(--banner-font-heading);
+    font-size: clamp(34px, 3.8vw, 54px);
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: var(--letter-spacing-wider);
+    line-height: var(--line-height-snug);
+    text-transform: uppercase;
+    text-shadow: 0 3px 14px rgba(0, 12, 35, 0.45);
+}
+
+/* 4. Description Paragraph */
+.banner-description {
+    margin: 0;
+    color: var(--banner-color-text-desc);
+    font-family: var(--banner-font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    font-weight: var(--font-weight-regular);
+    max-width: 820px;
+    text-shadow: 0 1px 6px rgba(0, 10, 30, 0.35);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .banner-container {
+        min-height: 480px;
+    }
+
+    .banner-content {
+        padding: 55px 50px;
+    }
+
+    .banner-description {
+        max-width: 680px;
+    }
+}
+
+@media (max-width: 992px) {
+    .banner-container {
+        min-height: 440px;
+    }
+
+    .banner-content {
+        padding: 45px 36px;
+    }
+
+    .banner-badge {
+        margin-bottom: var(--space-5, 20px);
+        padding: 6px var(--space-4, 16px);
+    }
+
+    .banner-title {
+        margin-bottom: var(--space-4, 16px);
+    }
+}
+
+@media (max-width: 640px) {
+    .banner-container {
+        min-height: 390px;
+    }
+
+    .banner-content {
+        padding: 35px var(--space-5, 20px);
+    }
+
+    .banner-breadcrumb {
+        margin-bottom: var(--space-4, 16px);
+        font-size: var(--font-size-sm, 12px);
+        gap: 6px;
+    }
+
+    .banner-badge {
+        margin-bottom: 18px;
+        padding: 5px var(--space-3, 14px);
+    }
+
+    .badge-text {
+        font-size: var(--font-size-xs, 11.5px);
+    }
+
+    .banner-title {
+        font-size: var(--font-size-5xl, 28px);
+        margin-bottom: var(--space-3, 14px);
+    }
+
+    .banner-description {
+        font-size: var(--font-size-md, 13.5px);
+        line-height: var(--line-height-relaxed, 1.55);
+    }
+}

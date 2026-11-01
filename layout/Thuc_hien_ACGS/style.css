@@ -1,0 +1,350 @@
+/* ==========================================================================
+   LAYOUT STYLES: THỰC HIỆN ACGS
+   File: layout/Thuc_hien_ACGS/style.css
+   ========================================================================== */
+
+/* 1. Nạp Design System & Global Styles */
+@import url('../../design-system/global.css');
+
+/* 2. Nạp Component Styles */
+@import url('../../component/Banner/Banner.css');
+@import url('../../component/ACGSCard/ACGSCard.css');
+@import url('../../component/SectionTitle/SectionTitle.css');
+@import url('../../component/StatCard/StatCard.css');
+@import url('../../component/CategoryProgress/CategoryProgress.css');
+@import url('../../component/SearchDetail/SearchDetail.css');
+@import url('../../component/CriteriaAccordion/CriteriaAccordion.css');
+
+/* ==========================================================================
+   MAIN LAYOUT CONTAINER
+   ========================================================================== */
+
+#banner {
+    width: 100%;
+}
+
+.main-content {
+    max-width: 100%;
+    margin: 0;
+    padding: var(--space-10, 40px) var(--space-10, 40px) var(--space-15, 60px) var(--space-10, 40px);
+}
+
+/* 1. Cards Grid / Container ACGS */
+.acgs-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    width: 100%;
+}
+
+/* 2. Overview Section */
+.section-overview {
+    margin-top: var(--space-12);
+    width: 100%;
+}
+
+/* Detail Section */
+.section-detail {
+    margin-top: var(--space-14);
+    width: 100%;
+}
+
+/* ==========================================================================
+   DETAIL TOOLBAR (Hình 3: Cấp độ 1/2, Tìm kiếm, Năm báo cáo)
+   ========================================================================== */
+.detail-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-6);
+    width: 100%;
+}
+
+/* 1. Nút chọn Cấp độ 1 / Cấp độ 2 */
+.detail-level-filters {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 8px);
+    flex-shrink: 0;
+}
+
+.level-filter-btn {
+    border: none;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    padding: 10px var(--space-5);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-fast);
+    user-select: none;
+}
+
+.level-filter-btn:hover {
+    background-color: var(--color-bg-progress-track);
+    color: var(--color-text-heading);
+}
+
+.level-filter-btn--active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.level-filter-btn--active:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-white);
+}
+
+/* 2. Ô Tìm kiếm */
+.detail-search-wrap {
+    flex: 1;
+    min-width: 260px;
+}
+
+/* 3. Dropdown Năm báo cáo (Hình 2) */
+.detail-year-select-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.detail-year-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dim);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    font-family: var(--font-family-heading);
+    white-space: nowrap;
+}
+
+.detail-year-dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-bg-page);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-xl);
+    padding: 9px var(--space-4);
+    cursor: pointer;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
+    user-select: none;
+}
+
+.detail-year-dropdown:hover {
+    border-color: var(--color-border-default);
+    background-color: var(--color-bg-card);
+}
+
+.detail-year-dropdown:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus);
+}
+
+.detail-year-value {
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-title);
+    font-family: var(--font-family-heading);
+}
+
+.detail-year-arrow {
+    color: var(--color-text-muted);
+    transition: transform var(--transition-base);
+}
+
+/* 3. 4 Stat Cards Grid (Hình 1) */
+.overview-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5, 20px);
+    margin-top: var(--space-6, 24px);
+    width: 100%;
+}
+
+/* 4. Khối 2 cột: Tình trạng câu hỏi (Trái) & Điểm theo nhóm tiêu chí (Phải) */
+.overview-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+    width: 100%;
+    align-items: stretch;
+}
+
+/* ==========================================================================
+   5. CARD TÌNH TRẠNG THỰC HIỆN CÂU HỎI (Cột trái)
+   ========================================================================== */
+.question-status-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-3xl);
+    padding: var(--space-6) var(--space-7);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-5);
+    height: 100%;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.question-status-card:hover {
+    box-shadow: var(--shadow-card-hover);
+}
+
+.question-status-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.question-status-title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-text-title);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    line-height: var(--line-height-heading);
+}
+
+.question-status-subtitle {
+    margin: 0;
+    font-size: var(--font-size-md);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-medium);
+}
+
+.question-status-subtitle b {
+    color: var(--color-text-title);
+    font-weight: var(--font-weight-bold);
+}
+
+.question-status-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+/* Thanh phân bổ xếp chồng (Stacked Bar) & Chú thích */
+.question-status-progress-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: auto;
+}
+
+.question-status-stacked-bar {
+    width: 100%;
+    height: 8px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    display: flex;
+    background-color: var(--color-bg-progress-track);
+}
+
+.stacked-bar-segment--green {
+    background-color: var(--color-success-accent);
+    height: 100%;
+    transition: width var(--transition-progress);
+}
+
+.stacked-bar-segment--orange {
+    background-color: var(--color-warning-bright);
+    height: 100%;
+    transition: width var(--transition-progress);
+}
+
+.question-status-legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.legend-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.legend-item--right {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.legend-percent {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-heading);
+}
+
+.legend-percent--green {
+    color: var(--color-success-accent);
+}
+
+.legend-percent--orange {
+    color: var(--color-warning-bright);
+}
+
+.legend-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-heading);
+    max-width: 200px;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1180px) {
+    .overview-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .overview-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .detail-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .detail-search-wrap {
+        order: 3;
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: var(--space-7) var(--space-5) var(--space-12) var(--space-5);
+    }
+
+    .acgs-cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .question-status-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+    .overview-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: var(--space-5) var(--space-4) 36px var(--space-4);
+    }
+}

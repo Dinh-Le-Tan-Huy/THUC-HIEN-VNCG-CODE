@@ -1,0 +1,228 @@
+/* ==========================================================================
+   COMPONENT STYLES: ACGS CARD
+   File: component/ACGSCard/ACGSCard.css
+   ========================================================================== */
+
+:root {
+    --acgs-card-font-title: var(--font-family-heading);
+    --acgs-card-font-desc: var(--font-family-body);
+    --acgs-card-radius: var(--radius-2xl);
+    --acgs-card-blue-bg: var(--color-primary-dark);
+    --acgs-card-text-title: var(--color-white);
+    --acgs-card-text-desc: var(--color-text-white-trans-90);
+}
+
+/* Card Container */
+.acgs-card {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    border-radius: var(--acgs-card-radius);
+    overflow: hidden;
+    background-color: var(--acgs-card-blue-bg);
+    box-shadow: var(--shadow-blue);
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+    user-select: none;
+    cursor: pointer;
+}
+
+.acgs-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-blue-hover);
+}
+
+/* Background Media Layer */
+.acgs-card-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.acgs-card-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Gradient Overlay for Text Readability */
+.acgs-card-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            rgba(5, 50, 120, 0.88) 0%,
+            rgba(5, 50, 120, 0.75) 45%,
+            rgba(5, 50, 120, 0.35) 70%,
+            transparent 100%);
+}
+
+/* Link Wrapper */
+.acgs-card-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Body Content */
+.acgs-card-body {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: 22px var(--space-8);
+    width: 100%;
+}
+
+/* Icon Container */
+.acgs-card-icon-wrapper {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--color-white);
+    transition: transform var(--transition-slow);
+}
+
+.acgs-card-icon {
+    width: 36px;
+    height: 36px;
+    fill: currentColor;
+    display: block;
+}
+
+/* Text Container */
+.acgs-card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Title: Thực hiện ACGS */
+.acgs-card-title {
+    margin: 0;
+    font-family: var(--acgs-card-font-title);
+    font-size: clamp(16px, 1.6vw, 20px);
+    font-weight: var(--font-weight-bold);
+    color: var(--acgs-card-text-title);
+    line-height: var(--line-height-snug);
+    letter-spacing: var(--letter-spacing-snug);
+}
+
+/* Description: Đánh giá và thực hiện các tiêu chí */
+.acgs-card-desc {
+    margin: 0;
+    font-family: var(--acgs-card-font-desc);
+    font-size: clamp(12px, 0.95vw, 14px);
+    font-weight: var(--font-weight-regular);
+    color: var(--acgs-card-text-desc);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ==========================================================================
+   LIGHT THEME VARIANT (Thực hiện VNCG Code)
+   ========================================================================== */
+.acgs-card.acgs-card-light {
+    background-color: var(--color-primary-light);
+    box-shadow: var(--shadow-blue);
+}
+
+.acgs-card.acgs-card-light:hover {
+    box-shadow: var(--shadow-blue-hover);
+}
+
+.acgs-card.acgs-card-light .acgs-card-overlay {
+    background: linear-gradient(90deg,
+            rgba(234, 244, 255, 0.98) 0%,
+            rgba(234, 244, 255, 0.92) 42%,
+            rgba(234, 244, 255, 0.6) 60%,
+            transparent 82%);
+}
+
+.acgs-card.acgs-card-light .acgs-card-icon-wrapper {
+    color: var(--color-primary);
+}
+
+.acgs-card.acgs-card-light .acgs-card-title {
+    color: var(--color-primary);
+}
+
+.acgs-card.acgs-card-light .acgs-card-desc {
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .acgs-card {
+        min-height: 90px;
+        border-radius: var(--radius-lg);
+    }
+
+    .acgs-card-body {
+        padding: var(--space-5) var(--space-7);
+        gap: var(--space-4);
+    }
+
+    .acgs-card-icon-wrapper {
+        width: 34px;
+        height: 34px;
+    }
+
+    .acgs-card-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .acgs-card {
+        min-height: 80px;
+        border-radius: var(--radius-xl);
+    }
+
+    .acgs-card-overlay {
+        background: linear-gradient(90deg,
+                rgba(7, 65, 153, 0.96) 0%,
+                rgba(7, 65, 153, 0.92) 65%,
+                rgba(7, 65, 153, 0.7) 100%);
+    }
+
+    .acgs-card-body {
+        padding: var(--space-4) var(--space-5);
+        gap: var(--space-3);
+    }
+
+    .acgs-card-icon-wrapper {
+        width: 28px;
+        height: 28px;
+    }
+
+    .acgs-card-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .acgs-card-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .acgs-card-desc {
+        font-size: var(--font-size-sm);
+    }
+}

@@ -1,0 +1,422 @@
+/* ==========================================================================
+   COMPONENT: CRITERIA ACCORDION (BẢNG TIÊU CHÍ 3 CẤP LỒNG NHAU)
+   File: component/CriteriaAccordion/CriteriaAccordion.css
+   Hỗ trợ 2 chế độ: 'acgs' (7 cột) và 'hdqt' (5 cột)
+   ========================================================================== */
+
+.criteria-accordion-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2, 8px);
+    font-family: var(--font-family-sans);
+    margin-top: var(--space-4, 16px);
+}
+
+/* ==========================================================================
+   CẤP 1: GROUP HEADER (A, B, C, D hoặc PHẦN 1, PHẦN 2...)
+   ========================================================================== */
+.criteria-group {
+    background: var(--color-bg-card, #ffffff);
+    border-radius: var(--radius-md, 6px);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-light, #e2e8f0);
+    transition: all var(--transition-smooth);
+}
+
+.criteria-group-header {
+    background-color: var(--color-primary-sub, #1e60b5);
+    color: var(--color-white, #ffffff);
+    padding: 13px var(--space-5, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--transition-base);
+}
+
+.criteria-group-header:hover {
+    background-color: var(--color-primary-sub-hover, #18529d);
+}
+
+.criteria-group-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 12px);
+}
+
+.criteria-group-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.criteria-group.is-open .criteria-group-icon {
+    transform: rotate(0deg);
+}
+
+.criteria-group:not(.is-open) .criteria-group-icon {
+    transform: rotate(-90deg);
+}
+
+.criteria-group-title {
+    font-size: var(--font-size-normal, 14px);
+    font-weight: var(--font-weight-bold, 700);
+    letter-spacing: var(--letter-spacing-wide, 0.3px);
+    text-transform: uppercase;
+    color: var(--color-white, #ffffff);
+    margin: 0;
+}
+
+.criteria-group-badge {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-white, #ffffff);
+    font-size: var(--font-size-sm, 12px);
+    font-weight: var(--font-weight-medium, 500);
+    padding: 3px var(--space-3, 14px);
+    border-radius: var(--radius-full, 9999px);
+    white-space: nowrap;
+}
+
+.criteria-group-content {
+    display: none;
+    background: var(--color-bg-card, #ffffff);
+}
+
+.criteria-group.is-open > .criteria-group-content {
+    display: block;
+}
+
+/* ==========================================================================
+   CẤP 1.5: PRINCIPLE HEADER (Dành cho HĐQT: NGUYÊN TẮC 1, 2...)
+   ========================================================================== */
+.criteria-principle {
+    border-bottom: 1px solid var(--color-border-default, #cbd5e1);
+}
+
+.criteria-principle-header {
+    background-color: var(--color-primary-sub, #1e60b5);
+    color: var(--color-white, #ffffff);
+    padding: 11px var(--space-5, 20px) 11px var(--space-7, 28px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--transition-base);
+}
+
+.criteria-principle-header:hover {
+    background-color: var(--color-primary-hover, #0d47a1);
+}
+
+.criteria-principle-title {
+    font-size: var(--font-size-md, 13.5px);
+    font-weight: var(--font-weight-bold, 700);
+    letter-spacing: 0.2px;
+    margin: 0;
+}
+
+.criteria-principle-badge {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--color-white, #ffffff);
+    font-size: var(--font-size-xs, 11.5px);
+    font-weight: var(--font-weight-medium, 500);
+    padding: 2px var(--space-3, 12px);
+    border-radius: var(--radius-full, 9999px);
+}
+
+.criteria-principle-content {
+    display: none;
+}
+
+.criteria-principle.is-open > .criteria-principle-content {
+    display: block;
+}
+
+/* ==========================================================================
+   CẤP 2: SUBGROUP HEADER (A.1, A.2 hoặc 1.1, 1.2...)
+   ========================================================================== */
+.criteria-subgroup {
+    border-bottom: 1px solid var(--color-border-light, #e2e8f0);
+}
+
+.criteria-subgroup:last-child {
+    border-bottom: none;
+}
+
+.criteria-subgroup-header {
+    background-color: var(--color-primary-light, #e8f1fc);
+    border-bottom: 1px solid var(--color-bg-subgroup-border, #d4e4f7);
+    padding: var(--space-3, 12px) var(--space-5, 20px);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4, 16px);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--transition-base);
+}
+
+.criteria-subgroup-header:hover {
+    background-color: var(--color-primary-light-hover, #ddeaf9);
+}
+
+.criteria-subgroup-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size-md, 13.5px);
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-primary-sub, #1e60b5);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.criteria-subgroup-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition-base);
+}
+
+.criteria-subgroup.is-open .criteria-subgroup-icon {
+    transform: rotate(0deg);
+}
+
+.criteria-subgroup:not(.is-open) .criteria-subgroup-icon {
+    transform: rotate(-90deg);
+}
+
+.criteria-subgroup-title {
+    font-size: var(--font-size-md, 13.5px);
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--color-text-main, #1e293b);
+    margin: 0;
+    line-height: var(--line-height-base, 1.4);
+}
+
+.criteria-subgroup-content {
+    display: none;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.criteria-subgroup.is-open > .criteria-subgroup-content {
+    display: block;
+}
+
+/* ==========================================================================
+   CẤP 3: TABLE BẢNG TIÊU CHÍ CHI TIẾT
+   ========================================================================== */
+.criteria-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-bg-card, #ffffff);
+    font-size: var(--font-size-base, 13px);
+}
+
+.criteria-table thead th {
+    background-color: var(--color-bg-table-header, #f0f4f9);
+    color: var(--color-text-main, #1e293b);
+    font-size: var(--font-size-sm, 12px);
+    font-weight: var(--font-weight-bold, 700);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide, 0.3px);
+    padding: var(--space-3, 12px) var(--space-3, 14px);
+    border-right: 1px solid var(--color-border-light, #e2e8f0);
+    border-bottom: 1px solid var(--color-border-table-head, #dbe3ee);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.criteria-table thead th:last-child {
+    border-right: none;
+}
+
+.criteria-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.criteria-table tbody tr:hover {
+    background-color: var(--color-bg-page, #f8fafc);
+}
+
+.criteria-table tbody td {
+    padding: var(--space-4, 16px) var(--space-3, 14px);
+    border-right: 1px solid var(--color-border-light, #e2e8f0);
+    border-bottom: 1px solid var(--color-border-light, #e2e8f0);
+    color: var(--color-text-body, #334155);
+    font-size: var(--font-size-base, 13px);
+    line-height: var(--line-height-relaxed, 1.55);
+    vertical-align: middle;
+}
+
+.criteria-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.criteria-table tbody td:last-child {
+    border-right: none;
+}
+
+/* Cột STT */
+.criteria-col-stt {
+    width: 75px;
+    min-width: 75px;
+    text-align: center;
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-primary-sub, #1e60b5);
+    font-size: var(--font-size-md, 13.5px);
+}
+
+/* Cột Nội dung */
+.criteria-col-content {
+    min-width: 280px;
+    max-width: 420px;
+    text-align: left;
+    color: var(--color-text-main, #1e293b);
+}
+
+/* Cột Điểm tối đa / Điểm tự chấm */
+.criteria-col-score {
+    width: 95px;
+    min-width: 95px;
+    text-align: center;
+    font-weight: var(--font-weight-medium, 500);
+    color: var(--color-text-main, #1e293b);
+    font-size: var(--font-size-md, 13.5px);
+}
+
+/* Cột YES / NO hoặc TRẠNG THÁI */
+.criteria-col-status {
+    width: 130px;
+    min-width: 130px;
+    text-align: center;
+}
+
+.criteria-badge {
+    display: inline-block;
+    padding: 5px var(--space-4, 16px);
+    border-radius: var(--radius-full, 9999px);
+    font-weight: var(--font-weight-bold, 700);
+    font-size: var(--font-size-xs, 11.5px);
+    letter-spacing: var(--letter-spacing-wider, 0.5px);
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+}
+
+.criteria-badge--yes {
+    background-color: var(--color-success, #16a34a);
+    color: var(--color-white, #ffffff);
+}
+
+.criteria-badge--no {
+    background-color: var(--color-danger, #dc2626);
+    color: var(--color-white, #ffffff);
+}
+
+.criteria-badge--compliant {
+    background-color: var(--color-success, #16a34a);
+    color: var(--color-white, #ffffff);
+    padding: 5px 18px;
+}
+
+.criteria-badge--non-compliant {
+    background-color: var(--color-danger, #dc2626);
+    color: var(--color-white, #ffffff);
+    padding: 5px 18px;
+}
+
+/* Cột Thuyết minh / Giải thích */
+.criteria-col-explanation {
+    min-width: 260px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.criteria-highlight-result {
+    color: var(--color-danger, #dc2626);
+    font-weight: var(--font-weight-bold, 700);
+    font-size: var(--font-size-base, 13px);
+    margin-bottom: 6px;
+}
+
+.criteria-explanation-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.criteria-explanation-item {
+    font-size: 12.5px;
+    color: var(--color-text-body, #334155);
+    line-height: var(--line-height-relaxed, 1.5);
+    margin-bottom: var(--space-1, 4px);
+    position: relative;
+    padding-left: var(--space-3, 12px);
+}
+
+.criteria-explanation-item::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted, #64748b);
+}
+
+/* Cột Bằng chứng */
+.criteria-col-evidence {
+    min-width: 180px;
+    max-width: 250px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.criteria-evidence-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.criteria-evidence-item {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12.5px;
+    line-height: var(--line-height-base, 1.45);
+}
+
+.criteria-evidence-bullet {
+    color: var(--color-text-secondary, #475569);
+    font-size: var(--font-size-normal, 14px);
+    line-height: var(--line-height-tight, 1.2);
+}
+
+.criteria-evidence-link {
+    color: var(--color-text-secondary, #475569);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+}
+
+.criteria-evidence-link:hover {
+    color: var(--color-primary-sub, #1e60b5);
+}
+
+/* Trạng thái không có dữ liệu */
+.criteria-empty {
+    padding: 30px;
+    text-align: center;
+    color: var(--color-text-muted, #64748b);
+    font-size: var(--font-size-normal, 14px);
+    background: var(--color-bg-card, #ffffff);
+    border-radius: var(--radius-md, 6px);
+    border: 1px dashed var(--color-border-default, #cbd5e1);
+}

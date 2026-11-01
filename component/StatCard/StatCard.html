@@ -1,0 +1,35 @@
+<!-- ==========================================================================
+     COMPONENT: STAT CARD
+     File: component/stat-card/StatCard.html
+     Template card thống kê số liệu / KPI nhận props động từ màn hình
+     ========================================================================== -->
+
+<div class="stat-card">
+    <!-- Header: Icon & Tiêu đề -->
+    <div class="stat-card-header">
+        <div class="stat-card-icon-wrapper">
+            <span class="stat-card-icon"></span>
+        </div>
+        <div class="stat-card-title-wrap">
+            <h4 class="stat-card-title"></h4>
+        </div>
+    </div>
+
+    <!-- Body: Giá trị chính (Value), đơn vị (Suffix) & Chỉ số phụ (Subvalue / %) -->
+    <div class="stat-card-body">
+        <div class="stat-card-value-wrap">
+            <span class="stat-card-value"></span>
+            <span class="stat-card-suffix"></span>
+        </div>
+        <div class="stat-card-subvalue"></div>
+    </div>
+
+    <!-- Footer: Thanh tiến độ (Progress Bar) hoặc ghi chú phụ (Description) -->
+    <div class="stat-card-footer">
+        <div class="stat-card-progress-label"></div>
+        <div class="stat-card-progress-bar">
+            <div class="stat-card-progress-fill"></div>
+        </div>
+        <p class="stat-card-desc"></p>
+    </div>
+</div>
