@@ -115,7 +115,7 @@
 .detail-year-label {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-dim);
+    color: var(--color-text-dim, #708099);
     letter-spacing: var(--letter-spacing-wider);
     text-transform: uppercase;
     font-family: var(--font-family-heading);
@@ -125,19 +125,19 @@
 .detail-year-dropdown {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background-color: var(--color-bg-page);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-xl);
-    padding: 9px var(--space-4);
+    gap: 12px;
+    background-color: var(--color-bg-page, #f8fafd);
+    border: 1px solid var(--color-border-light, #e2e8f0);
+    border-radius: var(--radius-xl, 12px);
+    padding: 8px 14px;
     cursor: pointer;
     transition: border-color var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
     user-select: none;
 }
 
 .detail-year-dropdown:hover {
-    border-color: var(--color-border-default);
-    background-color: var(--color-bg-card);
+    border-color: var(--color-border-default, #cbd5e1);
+    background-color: var(--color-bg-card, #ffffff);
 }
 
 .detail-year-dropdown:focus {
@@ -147,15 +147,32 @@
 }
 
 .detail-year-value {
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-normal, 15px);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-title);
+    color: var(--color-text-title, #1c2a38);
     font-family: var(--font-family-heading);
+    line-height: 1;
+}
+
+.detail-year-arrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 
 .detail-year-arrow {
-    color: var(--color-text-muted);
+    width: 14px;
+    height: 14px;
+    color: var(--color-text-muted, #4a5568);
     transition: transform var(--transition-base);
+    display: block;
+}
+
+.detail-year-dropdown.is-open .detail-year-arrow {
+    transform: rotate(180deg);
 }
 
 /* 3. 4 Stat Cards Grid (Hình 1) */
@@ -184,7 +201,7 @@
     background-color: var(--color-bg-card);
     border: 1px solid var(--color-border-subtle);
     border-radius: var(--radius-3xl);
-    padding: var(--space-6) var(--space-7);
+    padding: var(--space-12);
     box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;

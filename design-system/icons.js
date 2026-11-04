@@ -98,8 +98,10 @@ const VNCG_ICONS = {
         <svg viewBox="0 0 28 28" fill="currentColor">
             <path d="M4 6.5C4 5.12 5.12 4 6.5 4H12c.55 0 1 .45 1 1v15.2c0 .35-.18.67-.48.85-.3.18-.68.19-.99.03-1.4-.73-3.12-.9-4.82-.48-.68.17-1.34.45-1.93.84-.48.32-.78.85-.78 1.42V6.5z"/>
             <path d="M15 5c0-.55.45-1 1-1h5.5c1.38 0 2.5 1.12 2.5 2.5v16.36c0-.57-.3-1.1-.78-1.42-.59-.39-1.25-.67-1.93-.84-1.7-.42-3.42-.25-4.82.48-.31.16-.69.15-.99-.03-.3-.18-.48-.5-.48-.85V5z"/>
-            <line x1="17" y1="9" x2="21" y2="9" stroke="#eaf4ff" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="17" y1="13" x2="21" y2="13" stroke="#eaf4ff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="6.5" y1="9" x2="10.5" y2="9" stroke="var(--color-primary-light, #eaf4ff)" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="6.5" y1="13" x2="10.5" y2="13" stroke="var(--color-primary-light, #eaf4ff)" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="17.5" y1="9" x2="21.5" y2="9" stroke="var(--color-primary-light, #eaf4ff)" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="17.5" y1="13" x2="21.5" y2="13" stroke="var(--color-primary-light, #eaf4ff)" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
     `,
 

@@ -151,3 +151,9 @@ function applyBannerProps(container, props) {
         }
     }
 }
+
+// Gán toàn cục cho browser
+if (typeof window !== "undefined") {
+    window.loadBannerComponent = loadBannerComponent;
+    window.renderBanner = loadBannerComponent;
+}

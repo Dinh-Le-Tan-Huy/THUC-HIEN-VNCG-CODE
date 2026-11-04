@@ -126,3 +126,8 @@ function applyCardProps(card, props) {
         Object.assign(card.style, customStyle);
     }
 }
+
+// Gán toàn cục cho browser
+if (typeof window !== "undefined") {
+    window.renderACGSCard = renderACGSCard;
+}
