@@ -308,9 +308,18 @@ function createCriteriaTableElement(criteriaList, columnMode, options = {}) {
  * Render HTML cho một dòng bảng ACGS (7 cột)
  */
 function renderAcgsRowHtml(item) {
-    const isYes = String(item.result || "").toUpperCase() === "YES";
-    const badgeClass = isYes ? "criteria-badge--yes" : "criteria-badge--no";
-    const badgeText = isYes ? "YES" : "NO";
+    const result = String(item.result || "").toUpperCase().trim();
+    const isYes = result === "YES" || result === "Y";
+    const isNo  = result === "NO"  || result === "N";
+
+    // YES → pill xanh | NO → pill đỏ | Còn lại (trống, N/A...) → ô trống
+    let badgeHtml = "";
+    if (isYes) {
+        badgeHtml = `<span class="criteria-badge-yn criteria-badge-yn--yes">YES</span>`;
+    } else if (isNo) {
+        badgeHtml = `<span class="criteria-badge-yn criteria-badge-yn--no">NO</span>`;
+    }
+    // else: để trống — không render gì
     // Thuyết minh
     let explanationHtml = "";
     if (item.explanation) {
@@ -351,10 +360,8 @@ function renderAcgsRowHtml(item) {
     return `
         <td class="criteria-col-stt">${escapeHtml(item.stt || "")}</td>
         <td class="criteria-col-content">${escapeHtml(item.content || "")}</td>
-        <td class="criteria-col-score">${item.maxScore !== undefined ? item.maxScore : ""}</td>
-        <td class="criteria-col-status">
-            <span class="criteria-badge ${badgeClass}">${badgeText}</span>
-        </td>
+        <td class="criteria-col-score">${item.maxScore !== undefined && item.maxScore !== 0 ? item.maxScore : (item.maxScore === 0 ? "0" : "")}</td>
+        <td class="criteria-col-status">${badgeHtml}</td>
         <td class="criteria-col-score">${item.selfScore !== undefined ? item.selfScore : ""}</td>
         <td class="criteria-col-explanation">${explanationHtml}</td>
         <td class="criteria-col-evidence">${evidencesHtml}</td>
@@ -416,7 +423,7 @@ function renderHdqtRowHtml(item) {
         <td class="criteria-col-stt">${escapeHtml(item.stt || "")}</td>
         <td class="criteria-col-content">${escapeHtml(item.content || "")}</td>
         <td class="criteria-col-status">
-            <span class="criteria-badge ${badgeClass}">${statusText}</span>
+            <span class="criteria-badge-status ${badgeClass}">${statusText}</span>
         </td>
         <td class="criteria-col-explanation">${explanationHtml}</td>
         <td class="criteria-col-evidence">${evidencesHtml}</td>

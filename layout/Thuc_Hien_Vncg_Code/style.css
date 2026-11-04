@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    LAYOUT STYLES: THỰC HIỆN ACGS
    File: layout/Thuc_hien_ACGS/style.css
    ========================================================================== */
@@ -153,9 +153,26 @@
     font-family: var(--font-family-heading);
 }
 
+.detail-year-arrow-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.detail-year-arrow-wrap svg.detail-year-arrow,
 .detail-year-arrow {
-    color: var(--color-text-muted);
+    width: 14px;
+    height: 14px;
+    display: block;
+    color: var(--color-text-muted, #4a5568);
     transition: transform var(--transition-base);
+}
+
+.detail-year-dropdown.is-open .detail-year-arrow {
+    transform: rotate(180deg);
 }
 
 /* 3. 4 Stat Cards Grid (Hình 1) */

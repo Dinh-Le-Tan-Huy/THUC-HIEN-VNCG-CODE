@@ -276,68 +276,85 @@
 
 /* Cột YES / NO (ACGS) */
 .criteria-col-answer {
-    width: 85px;
-    min-width: 85px;
+    width: 90px;
+    min-width: 90px;
     text-align: center;
 }
 
-.criteria-badge-answer {
-    display: inline-block;
-    padding: 3px 12px;
-    border-radius: var(--radius-sm);
+/* Badge YES / NO dạng pill (border-radius full) */
+.criteria-badge-yn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 16px;
+    border-radius: var(--radius-full);
     font-weight: var(--font-weight-bold);
-    font-size: 11.5px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
 }
 
-.criteria-badge-answer--yes {
-    background-color: var(--color-success);
+/* YES → xanh lá */
+.criteria-badge-yn--yes {
+    background-color: var(--color-success-accent, #2ecc71);
     color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.30);
 }
 
-.criteria-badge-answer--no {
-    background-color: var(--color-danger);
+/* NO → đỏ */
+.criteria-badge-yn--no {
+    background-color: var(--color-danger-bright, #e53935);
     color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(229, 57, 53, 0.30);
+}
+
+/* N/A hoặc không rõ → ẩn hoàn toàn, cột để trống */
+.criteria-badge-yn--na {
+    display: none;
 }
 
 /* Cột Trạng thái (HĐQT) */
 .criteria-col-status {
-    width: 140px;
-    min-width: 140px;
+    width: 150px;
+    min-width: 150px;
     text-align: center;
 }
 
 .criteria-badge-status {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: var(--radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
     font-weight: var(--font-weight-semibold);
     font-size: 12px;
     white-space: nowrap;
+    letter-spacing: 0.3px;
 }
 
 .criteria-badge--compliant {
-    background-color: var(--color-success);
+    background-color: var(--color-success-accent, #27ae60);
     color: var(--color-white);
-    padding: 5px 18px;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.28);
 }
 
 .criteria-badge--partial {
-    background-color: var(--color-warning-amber);
+    background-color: var(--color-warning-amber, #f39c12);
     color: var(--color-white);
-    padding: 5px 18px;
+    box-shadow: 0 2px 8px rgba(243, 156, 18, 0.28);
 }
 
 .criteria-badge--non-compliant {
-    background-color: var(--color-danger);
+    background-color: var(--color-danger-bright, #e53935);
     color: var(--color-white);
-    padding: 5px 18px;
+    box-shadow: 0 2px 8px rgba(229, 57, 53, 0.28);
 }
 
 .criteria-badge--na {
-    background-color: var(--color-text-muted);
+    background-color: var(--color-text-placeholder, #aab4c0);
     color: var(--color-white);
-    padding: 5px 18px;
 }
 
 /* Cột Thuyết minh / Giải thích */

@@ -1,4 +1,4 @@
-
+﻿
 async function renderBanner(target, props = {}) {
     const container = document.querySelector(target);
     if (!container) return;
@@ -26,7 +26,11 @@ async function renderBanner(target, props = {}) {
         if (breadcrumb && Array.isArray(props.breadcrumbs) && props.breadcrumbs.length > 0) {
             const homeIcon = breadcrumb.querySelector(".breadcrumb-home");
             breadcrumb.innerHTML = "";
-            if (homeIcon) breadcrumb.appendChild(homeIcon);
+            if (homeIcon) {
+                const iconsLib = typeof VNCG_ICONS !== "undefined" ? VNCG_ICONS : (window.VNCG_ICONS || {});
+                homeIcon.innerHTML = iconsLib.home || "";
+                breadcrumb.appendChild(homeIcon);
+            }
 
             props.breadcrumbs.forEach((item, index) => {
                 const isLast = index === props.breadcrumbs.length - 1;
@@ -120,7 +124,13 @@ async function renderACGSCard(target, props = {}) {
         // Gán icon tùy biến (nếu có)
         const iconWrapper = cardElement.querySelector(".acgs-card-icon-wrapper");
         if (iconWrapper) {
-            if (props.iconSvg) iconWrapper.innerHTML = props.iconSvg;
+            let svg = props.iconSvg;
+            if (!svg && props.iconType) {
+                const iconKey = props.iconType || "chart";
+                const iconsLib = typeof VNCG_ICONS !== "undefined" ? VNCG_ICONS : (window.VNCG_ICONS || {});
+                svg = (iconsLib.get ? iconsLib.get(iconKey, "acgs-card-icon") : iconsLib[iconKey]) || "";
+            }
+            if (svg) iconWrapper.innerHTML = svg;
             if (props.iconColor) iconWrapper.style.color = props.iconColor;
         }
 
@@ -309,30 +319,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         description: "Công bố tình hình thực hiện Bộ nguyên tắc Quản trị công ty ASEAN (ACGS) của PV Drilling theo từng năm, hướng đến nâng cao tính minh bạch, trách nhiệm giải trình và chất lượng quản trị."
     });
 
-    // 2. Card 1: Thực hiện ACGS
-    renderACGSCard("#acgs-cards-container", {
-        bgImage: "../../assets/Image/ACGS_Card1.png",
+    // 2. Card 1: Thực hiện ACGS (light — inactive)
+    await renderACGSCard("#acgs-cards-container", {
+        bgImage: "../../assets/Image/ACGS_Card2.png",
         bgAlt: "Thực hiện ACGS",
         title: "Thực hiện ACGS",
-        description: "Đánh giá và thực hiện các tiêu chí",
-        link: "#",
-        customClass: "acgs-card-primary",
+        description: "Đánh giá mức độ đáp ứng các tiêu chí quản trị công ty của ASEAN",
+        link: "../../layout/Thuc_hien_ACGS/index.html",
+        customClass: "acgs-card-light",
         iconType: "chart",
-        iconColor: "var(--color-white)"
+        iconColor: "var(--color-primary)",
+        titleColor: "var(--color-primary)",
+        descColor: "var(--color-text-secondary)"
     });
 
-    // 3. Card 2: Thực hiện VNCG Code
-    renderACGSCard("#acgs-cards-container", {
-        bgImage: "../../assets/Image/ACGS_Card2.png",
+    // 3. Card 2: Thực hiện VNCG Code (dark navy — active/current screen)
+    await renderACGSCard("#acgs-cards-container", {
+        bgImage: "../../assets/Image/ACGS_Card1.png",
         bgAlt: "Thực hiện VNCG Code",
         title: "Thực hiện VNCG Code",
-        description: "Minh bạch - Bền vững - Giá trị dài hạn",
+        description: "Đánh giá mức độ tuân thủ các thông lệ quản trị Việt Nam",
         link: "#",
-        customClass: "acgs-card-light",
+        customClass: "acgs-card-primary",
         iconType: "book",
-        titleColor: "var(--color-primary)",
-        descColor: "var(--color-text-secondary)",
-        iconColor: "var(--color-primary)"
+        iconColor: "var(--color-white)"
     });
 
     // 4. Tiêu đề đề mục: TỔNG QUAN
@@ -464,10 +474,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const selectedYearEl = document.querySelector("#selected-year");
     if (yearDropdown && selectedYearEl) {
         const arrowWrap = yearDropdown.querySelector(".detail-year-arrow-wrap");
-        if (arrowWrap) {
-            arrowWrap.innerHTML = window.VNCG_ICONS?.get ? window.VNCG_ICONS.get("chevronDown", "detail-year-arrow") : (window.VNCG_ICONS?.chevronDown || "");
+        if (arrowWrap && !arrowWrap.querySelector("svg")) {
+            arrowWrap.innerHTML = window.VNCG_ICONS?.get
+                ? window.VNCG_ICONS.get("chevronDown", "detail-year-arrow")
+                : (window.VNCG_ICONS?.chevronDown || "");
         }
         yearDropdown.addEventListener("click", () => {
+            yearDropdown.classList.toggle("is-open");
             const currentYear = selectedYearEl.textContent.trim();
             selectedYearEl.textContent = currentYear === "2026" ? "2025" : "2026";
         });

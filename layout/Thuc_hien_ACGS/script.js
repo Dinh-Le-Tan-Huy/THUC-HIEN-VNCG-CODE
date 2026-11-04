@@ -336,6 +336,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         description: "Tổng quan kết quả tự đánh giá mức độ đáp ứng các tiêu chí ACGS."
     });
 
+    // Lấy dữ liệu tổng hợp từ Mock_Data (SUMARY CARD.xlsx Sheet1)
+    const summary = (typeof acgsSummaryData !== "undefined" ? acgsSummaryData : window.acgsSummaryData) || {};
+    const overview = summary.overview || {};
+    const qStatus = summary.questionStatus || {};
+    const catScores = summary.categoryScores || [];
+
     // 5. 4 Stat Cards: Điểm & Level (Hình 1)
     if (typeof renderStatCards === "function") {
         await renderStatCards("#stat-cards-overview", [
@@ -343,34 +349,34 @@ document.addEventListener("DOMContentLoaded", async () => {
                 theme: "red",
                 iconType: "trophy",
                 title: "TỔNG ĐIỂM ĐẠT ĐƯỢC",
-                value: "143",
-                suffix: "/ 209 điểm",
+                value: String(overview.totalScore || 143),
+                suffix: `/ ${overview.maxScore || 209} điểm`,
                 note: "Điểm đạt được trên tổng điểm tối đa"
             },
             {
                 theme: "green",
                 iconType: "target",
                 title: "TỶ LỆ ĐẠT ĐIỂM",
-                value: "68%",
-                progress: 68
+                value: `${overview.percentScore || 68}%`,
+                progress: overview.percentScore || 68
             },
             {
                 theme: "purple",
                 iconType: "level",
                 title: "LEVEL 1",
-                value: "131",
-                suffix: "/ 179 điểm",
-                progress: 73,
-                progressLabel: "Đạt <b>73%</b>"
+                value: String(overview.level1?.score || 131),
+                suffix: `/ ${overview.level1?.maxScore || 179} điểm`,
+                progress: overview.level1?.percent || 73,
+                progressLabel: `Đạt <b>${overview.level1?.percent || 73}%</b>`
             },
             {
                 theme: "orange",
                 iconType: "level",
                 title: "LEVEL 2",
-                value: "12",
-                suffix: "/ 30 điểm",
-                progress: 40,
-                progressLabel: "Đạt <b>40%</b>"
+                value: String(overview.level2?.score || 12),
+                suffix: `/ ${overview.level2?.maxScore || 30} điểm`,
+                progress: overview.level2?.percent || 40,
+                progressLabel: `Đạt <b>${overview.level2?.percent || 40}%</b>`
             }
         ]);
     }
@@ -378,25 +384,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 6. Cột trái: Tình trạng thực hiện câu hỏi
     await renderQuestionStatus("#question-status-container", {
         title: "TÌNH TRẠNG THỰC HIỆN CÂU HỎI",
-        totalQuestions: 193,
+        totalQuestions: qStatus.totalQuestions || 193,
         items: [
             {
                 variant: "soft-green",
                 iconType: "check",
                 title: "Đáp ứng toàn bộ",
-                value: "146",
+                value: String(qStatus.completed?.count || 146),
                 suffix: "câu hỏi",
-                subValue: "76%",
-                percent: 76
+                subValue: `${qStatus.completed?.percent || 76}%`,
+                percent: qStatus.completed?.percent || 76
             },
             {
                 variant: "soft-orange",
                 iconType: "clock",
                 title: "Chưa đáp ứng đầy đủ hoặc đáp ứng 1 phần",
-                value: "47",
+                value: String(qStatus.pending?.count || 47),
                 suffix: "câu hỏi",
-                subValue: "24%",
-                percent: 24
+                subValue: `${qStatus.pending?.percent || 24}%`,
+                percent: qStatus.pending?.percent || 24
             }
         ]
     });
@@ -405,7 +411,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (typeof renderCategoryProgress === "function") {
         await renderCategoryProgress("#category-progress-container", {
             title: "ĐIỂM THEO NHÓM TIÊU CHÍ",
-            items: [
+            items: catScores.length > 0 ? catScores : [
                 {
                     badge: "A",
                     name: "Nhóm A - Quyền cổ đông",
@@ -444,14 +450,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         description: "Bảng chi tiết kết quả tự đánh giá mức độ đáp ứng các tiêu chí ACGS."
     });
 
-
-
     // 10. Render component CriteriaAccordion (Bảng 3 cấp)
     let criteriaController = null;
+    const initialData = (typeof acgsLevel1Data !== "undefined" ? acgsLevel1Data : (window.acgsLevel1Data || window.acgsDetailData)) || [];
     if (typeof renderCriteriaAccordion === "function") {
         criteriaController = await renderCriteriaAccordion("#criteria-accordion-container", {
             columnMode: "acgs",
-            data: (typeof acgsDetailData !== "undefined" ? acgsDetailData : window.acgsDetailData) || [],
+            data: initialData,
             defaultExpandFirst: true,
             onEvidenceClick: (ev) => {
                 console.log("[CriteriaAccordion] Xem tài liệu bằng chứng:", ev.title, ev.url);
@@ -480,6 +485,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             btn.classList.add("level-filter-btn--active");
             const level = btn.getAttribute("data-level");
             console.log("[Filter] Chọn cấp độ:", level);
+
+            const targetData = level === "2"
+                ? ((typeof acgsLevel2Data !== "undefined" ? acgsLevel2Data : window.acgsLevel2Data) || [])
+                : ((typeof acgsLevel1Data !== "undefined" ? acgsLevel1Data : window.acgsLevel1Data) || []);
+
+            if (criteriaController && typeof criteriaController.setData === "function") {
+                criteriaController.setData(targetData);
+            }
         });
     });
 
